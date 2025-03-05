@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* background: linear-gradient(to bottom, #d1f2eb, #d6eaf8); */
+    background-color: #f4f4f4;
+    color: #ffefef;
+    overflow-x: hidden;
+}
+/* body {background: #D6EFD8;} */
+
+ /* body{background: #508D4E;} */
+
+/* css for log out dropdown */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.dropdown-content button {
+    border: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#logout-dropdown {
+    display: none; /* Hidden by default */
+}
+
+.user-menu:hover #logout-dropdown {
+    display: block; /* Show on hover */
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px; /* Adjust padding to reduce navbar height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D6EFD8;
+    color: #434242;
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    height: 60px; /* Limit the logo height */
+    width: auto; /* Maintain aspect ratio */
+    margin: 0%;
+}
+
+
+.navbar-links {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #9A7E6F;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #007bff; /* Hover color matching your theme */
+}
+
+/* Optional: Add spacing so content below navbar is visible */
+body {
+    padding-top: 60px;
+}
+
+
+.about-us {
+    opacity: 0;
+    transform: translateY(30px); /* Optional: Start from slightly lower position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to make it visible */
+.about-us.visible {
+    opacity: 1;
+    transform: translateY(0); /* Reset position */
+}
+
+header {
+  
+    text-align: center;
+
+    justify-content: center;
+    padding: 100px 0;
+    /* background: url('bannerleft.png') no-repeat left center; */
+    height: 100vh ;
+    overflow: hidden;
+}
+ header div{
+    margin: auto;
+    margin-top: 270px;
+   
+}
+.banner{
+    margin-top: 150px;
+}
+.banner h3{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #6d2c02;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #A67B5B;
+    font-family: 'Georgia', serif;
+}
+
+.detect-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #A67B5B;
+    color: #fff;
+    border: none;
+    font-family: 'Trebuchet MS';
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.detect-btn:hover {
+    background-color: #8e6a4e;
+}
+
+
+
+/* new css for home image ././././././././ */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4; 
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 15vh; /* Adjust this value to move it up or down */
+    transform: translateY(-5%); /* Adjust for precise positioning */
+}
+
+
+.banner {
+    flex: 1;
+    padding-right: 20px; /* Space between banner and image */
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.banner h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.detect-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #A67B5B;
+    color: #fff;
+    border: none;
+    font-family: 'Trebuchet MS';
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.home-image {
+    flex: 1;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+}
+
+
+.about-us {
+    text-align: center;
+    padding: 50px 20px;
+    height: 100vh;
+    /* color: #777019; */
+    /* background-color: rgba(255, 255, 255, 0.7);
+     */
+     /* background-color: #d4af86;
+      */
+      /* background: linear-gradient(to bottom, #d1f2eb, #d6eaf8); */
+      background-color: #508D4E;
+
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+   
+}
+
+.about-us p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    /* background-color: rgba(255, 255, 255, 0.7);
+     */
+     background-color: #1A5319;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}
+
+.main-office, .social-media {
+    font-size: 1rem;
+}
+
+.email {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* leaf animations */
+
+.our-services {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #80AF81;
+    height: 550px;
+    color: #333;
+}
+
+.our-services h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #6d2c02;
+}
+
+.services-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    max-width: 90%; /* Adjust to fit layout */
+    margin: auto;
+
+    margin-top: 80px;
+}
+
+.services-cards {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 0; /* For smoother scroll experience */
+    width: 100%;
+}
+.services-cards::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
+
+.service-card {
+    flex: 0 0 auto;
+    width: 250px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.service-card img {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.service-card p {
+    padding: 15px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Apply fade-in animation to .services section */
+
+.our-services {
+    opacity: 0;
+    transform: translateY(30px); /* Initial hidden state */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.our-services.visible {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+.about-us, .our-services {
+    opacity: 0;
+    transform: translateY(30px); /* Hidden initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.about-us.visible, .our-services.visible {
+    opacity: 1;
+    transform: translateY(0); /* Shown when visible */
+}

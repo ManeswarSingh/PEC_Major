@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection</title>
+    <style>
+        /* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Page Wrapper */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 30vh;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    color: #6d2c02;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #A67B5B;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #8e6a4e;
+}
+
+/* Results Section */
+#result {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+#result h2 {
+    color: #6d2c02;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#result p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+#result span {
+    font-weight: bold;
+    color: #333;
+}
+.preview {
+            margin-top: 10px;
+            text-align: center;
+        }
+#previewImage {
+    max-width: 300px;
+    max-height: 300px;
+    display: none;
+    margin: auto; /* Centers the image inside the container */
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form, #result {
+        padding: 15px;
+    }
+
+    form button {
+        font-size: 0.9rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Upload an Image to Predict Plant Disease</h1>
+    <form id="predict-form" enctype="multipart/form-data">
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+        <img id="previewImage" src="" alt="Preview">
+        <button type="submit">Predict Disease</button>
+    </form>
+
+    <div id="result">
+        <h2>Prediction Results</h2>
+        <p><strong>Class Label:</strong> <span id="class-label"></span></p>
+        <p><strong>Confidence:</strong> <span id="confidence"></span></p>
+    </div>
+
+    <script>
+        const previewImage = document.getElementById('previewImage');
+        const imageInput = document.getElementById('image'); // Correctly referencing the input element
+    
+        // Event listener for the file input change
+        imageInput.addEventListener('change', () => {
+            const file = imageInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block'; // Display the image when a file is loaded
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImage.style.display = 'none'; // Hide the image if no file is selected
+            }
+        });
+    
+        document.getElementById('predict-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            var formData = new FormData();
+            formData.append('image', imageInput.files[0]); // Using the correct reference
+    
+            fetch('http://127.0.0.1:5001/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.class_label && data.confidence) {
+                    document.getElementById('class-label').textContent = data.class_label;
+                    document.getElementById('confidence').textContent = data.confidence;
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => alert('Error: ' + error));
+        });
+    </script>
+    
+</body>
+</html>

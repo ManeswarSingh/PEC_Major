@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <style>
+        /* General reset for body */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #D6EFD8;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for centering the form */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the form container */
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Header styling */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling for form inputs */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    border-color: #a67b5b;
+    outline: none;
+}
+
+/* Styling for the submit button */
+button {
+    background-color: #a67b5b;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #8e6a4e;
+}
+
+/* Optional: Style the form fields for better appearance */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    box-sizing: border-box;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+}
+
+.newuser{
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Log in using registered account</h2>
+            <form id="loginForm" action="/user/login" method="POST">
+                
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="newuser">
+                    New User? <a href="/user/register">Register instead</a>
+                </div>
+
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- <script>
+    const loginForm = document.getElementById('loginForm');
+
+loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(loginForm);
+    const formObject = Object.fromEntries(formData.entries());
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formObject),
+        });
+
+        if (!response.ok) {
+            const data = await response.json();
+            alert(data.error); // Show error message
+        } else {
+            window.location.href = '/'; // Redirect on success
+        }
+    } catch (err) {
+        console.error('Error:', err);
+        alert('Incorrect email or password');
+    }
+});
+
+</script> -->
+</html>
