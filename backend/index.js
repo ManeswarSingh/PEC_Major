@@ -71,7 +71,7 @@ app.post("/tweets", upload.single("image"), async (req, res) => {
 
         // Check if an image was uploaded
         if (req.file) {
-            console.log("Uploading file:", req.file.path);
+            // console.log("Uploading file:", req.file.path);
             const uploadResult = await uploadOnCloudinary(req.file.path);
 
             if (!uploadResult || !uploadResult.secure_url) {
