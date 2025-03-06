@@ -11,13 +11,7 @@ cloudinary.config({
     api_secret: "UC29-GY5EwvqpeNqO6R5Fc2w_XI",
 });
 
-// const storage = new CloudinaryStorage({
-//     cloudinary,
-//     params: {
-//         folder: "user_profiles", // Folder in Cloudinary
-//         allowed_formats: ["jpg", "jpeg", "png"]
-//     }
-// });
+
 const uploadOnCloudinary = async (localFilePath) => {
     try {
         console.log("New file path:", localFilePath);

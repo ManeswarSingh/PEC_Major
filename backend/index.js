@@ -8,6 +8,8 @@ const {checkForAuthenticationCookie} = require("./middleware/auth.js")
 const cookieParser = require("cookie-parser");
 const Tweet = require("./models/tweet.model.js")
 const User = require("./models/user.model.js");
+const {uploadOnCloudinary} = require("./config/cloudinary.js");
+const upload = require("./config/multer.js");
 
 
 const mongouri = "mongodb+srv://singhmaneshwar08:singh@cluster0.kzv3s.mongodb.net"
@@ -45,6 +47,8 @@ app.get("/api/login-status", (req, res) => {
     }
     res.json({ isLoggedIn: false });
 });
+app.use(express.json());  // Ensure this is before app.post("/tweets")
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/tweets", async (req, res) => {
         try {
@@ -59,37 +63,34 @@ app.get("/tweets", async (req, res) => {
         }
     
 });
-app.use(express.json());  // Ensure this is before app.post("/tweets")
-app.use(express.urlencoded({ extended: true }));
 
-app.post("/tweets", async (req, res) => {
+app.post("/tweets", upload.single("image"), async (req, res) => {
     try {
         const { userId, content } = req.body;
+        let imageUrl = null;
 
-        if (!userId) {
-            return res.status(401).json({ error: "Unauthorized: Please log in to post tweets." });
-        }
-        console.log("MongoDB Connection State:", mongoose.connection.readyState);
+        // Check if an image was uploaded
+        if (req.file) {
+            console.log("Uploading file:", req.file.path);
+            const uploadResult = await uploadOnCloudinary(req.file.path);
 
-        if (!userId) {
-            return res.status(400).json({ error: "User ID is required" });
-        }
+            if (!uploadResult || !uploadResult.secure_url) {
+                return res.status(500).json({ error: "Error uploading image" });
+            }
 
-        // Find the user in the database
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ error: "User not found" });
+            imageUrl = uploadResult.secure_url;
         }
 
-        // Create and save the tweet
-        const newTweet = new Tweet({ 
-            userId: user._id, 
-            content 
+        // Create new tweet
+        const newTweet = new Tweet({
+            userId,
+            content,
+            image: imageUrl || null, 
+            timestamp: new Date()
         });
 
         await newTweet.save();
-
-        res.status(201).json(newTweet);
+        res.status(201).json({ message: "Tweet posted successfully", newTweet });
     } catch (err) {
         console.error("Error creating tweet:", err);
         res.status(500).json({ error: err.message });
