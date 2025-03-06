@@ -155,8 +155,19 @@ button:hover {
 .sidebar ul li {
     padding: 10px 0;
     font-size: 18px;
-    font-weight: bold;
-    color: #000;
+    /* font-weight: bold; */
+    color: #4d4646;
+    font-size: 1.1rem; /* Default size */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Smooth transition */
+    font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+}
+
+.sidebar ul li:hover {
+    transform: scale(1.1); /* Slightly increase size */
+    font-size: 1.3rem; /* Increase font size */
 }
 #plantSide{
     font-family: "Caveat", cursive;
@@ -216,19 +227,6 @@ button:hover {
     border-radius: 10px;
 }
 
-.trending {
-    width: 20%;
-    background: #1a3d24;
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.trending-images img {
-    width: 45%;
-    margin: 5px;
-    border-radius: 10px;
-}
 .feed {
     width: 50%;
     background: white;
@@ -326,39 +324,6 @@ button:hover {
     gap: 10px;
 }
 
-#tweetForm input, 
-#tweetForm textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-#tweetForm textarea {
-    resize: none;
-    height: 100px;
-}
-
-#tweetForm button {
-    background: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-#tweetForm button:hover {
-    background: #388e3c;
-}
-
-
-
-
-
 
 /* Tweet Form Section */
 #tweetSection {
@@ -390,7 +355,7 @@ button:hover {
 
 #tweetForm textarea {
     resize: none;
-    height: 100px;
+    height: 200px;
 }
 
 #tweetForm button {
@@ -419,23 +384,11 @@ button:hover {
     overflow-y: auto; /* Scrollable */
 }
 
-/* Individual Tweet Cards */
-.tweet {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-}
 
 .tweet small {
     color: gray;
-    font-size: 14px;
+    font-size: 11px;
 }
-
-
-
 
 
 
@@ -486,7 +439,7 @@ button:hover {
 
 /* Tweet Content */
 .tweet-content {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.5;
 }
 
@@ -494,6 +447,10 @@ button:hover {
 .tweet-content p {
     margin: 10px 0;
     font-weight: bold;
+    font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-style: normal;
 }
 
 /* Tweet Image */
@@ -502,6 +459,134 @@ button:hover {
     border-radius: 10px;
     margin-top: 10px;
 }
+#image{
+    color: #000;
+}
+.video-section {
+    text-align: center;
+    margin-top: 30px;
+}
+.video-section h2{
+    color: #000;
+    font-size: 100px;
+}
+
+.video-section video {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+
+
+.video-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grow-video {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Grow effect on hover */
+.video-container:hover .grow-video {
+    transform: scale(1.1);
+}
+
+/* "Try Now" button */
+.try-now-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 123, 255, 0.9); /* Theme color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show button only on hover */
+.video-container:hover .try-now-btn {
+    opacity: 1;
+}
+
+.video-section {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .video-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .grow-video {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Enlarge video on hover */
+    .video-container:hover .grow-video {
+        transform: scale(1.05);
+    }
+
+    /* Try Now button */
+    .try-now-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .video-container:hover .try-now-btn {
+        opacity: 1;
+    }
+
+    /* Grow Bot description */
+    .grow-bot-description {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+    }
+
+
+
+
+    
+
 
 
     </style>
@@ -514,7 +599,7 @@ button:hover {
                 <li><a href="/">Home</a></li>
                 <li><a href="#" onclick="window.location.href = 'model_form.html';">Detect Disease</a></li>
 
-                <li><a href="#">Shop</a></li>
+                <li><a href="#video-section">Grow Bot</a></li>
                 <li><a href="/user/register">Sign up</a></li>
                 <li id="loginLink"><a href="/user/login">Log in</a></li>
             </ul>
@@ -528,14 +613,14 @@ button:hover {
     </section>
     <section class="community">
         <aside class="sidebar">
-            <div class="sidebar-logo"><div id="plantSide">Plant</div> <span class="easy">Easy Care</span></div>
+            <div class="sidebar-logo"><div id="plantSide">Plant</div> <span class="easy">Easy Care Community</span></div>
             <ul>
-                <li>🏡 Home</li>
-                <li>💬 Message</li>
-                <li>🛍 ECO Mart</li>
-                <li>🤖 Grow Bot</li>
+                <li>Share your Thoughts</li>
+                <li>Interact with Others</li>
+                <li>Share Your Journey</li>
+                <li>Help others Grow</li>
             </ul>
-            <button class="connect-btn">Connect +</button>
+            <!-- <button class="connect-btn">Connect +</button> -->
         </aside>
         
         <section id="tweetsContainer">
@@ -546,23 +631,44 @@ button:hover {
             <form id="tweetForm">
                 <!-- <input type="text" id="username"> -->
                 <textarea id="content" placeholder="Share something..." required></textarea>
+                <!-- <input type="file" id="imageUpload" accept="image/*"> -->
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <span id="fileName">No file chosen</span>
                 <button type="submit">Post Tweet</button>
             </form>
         </section>
 
     </section>
+
+    <section class="video-section" id="video-section">
+        <h2>Grow Bot</h2>
+        <div class="video-container">
+            <video class="grow-video" autoplay loop muted>
+                <source src="vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button class="try-now-btn">Try Now</button>
+            <p class="grow-bot-description">
+                Grow Bot is your smart assistant for plant care. It helps you monitor, nurture,  
+                and optimize the health of your plants with AI-powered insights. Try it now and  
+                experience effortless gardening!
+            </p>
+        </div>
+    </section>
+    
     
     <script>
     
-document.addEventListener("DOMContentLoaded", async () => {
+    document.addEventListener("DOMContentLoaded", async () => {
     const tweetForm = document.getElementById("tweetForm");
     const contentInput = document.getElementById("content");
+    const imageInput = document.getElementById("image"); // ✅ Fix: Correct image input ID
     const tweetsContainer = document.getElementById("tweetsContainer");
     const loginLink = document.getElementById("loginLink");
 
-    let loggedInUserId = null; // Store logged-in user ID
+    let loggedInUserId = null; 
 
-    // ✅ Fetch login status & update UI
+    // ✅ Check Login Status
     async function checkLoginStatus() {
         try {
             const response = await fetch("/api/login-status", { credentials: "include" });
@@ -594,74 +700,76 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // ✅ Fetch & Display Tweets
     async function loadTweets() {
-    try {
-        const response = await fetch("/tweets");
-        let tweets = await response.json();
+        try {
+            const response = await fetch("/tweets");
+            let tweets = await response.json();
 
-        console.log("Fetched tweets:", tweets);
+            tweets = tweets.filter(tweet => tweet.timestamp); 
 
-        tweets = tweets.filter(tweet => tweet.timestamp); // Remove undefined timestamps
+            tweets.forEach(tweet => {
+                if (!tweet.timestamp) tweet.timestamp = "1970-01-01T00:00:00Z"; 
+            });
 
-        // Ensure timestamps are valid
-        tweets.forEach(tweet => {
-            if (!tweet.timestamp) tweet.timestamp = "1970-01-01T00:00:00Z"; 
-        });
+            tweets.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
-        // Sorting based on timestamp (latest first)
-        tweets.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            tweetsContainer.innerHTML = ""; 
 
-        console.log("Sorted tweets:", tweets.map(t => t.timestamp));
+            tweets.forEach(tweet => {
+                const profileImage = tweet.userId?.profileImage || "https://via.placeholder.com/50";
+                const username = tweet.userId?.username || "Unknown User";
 
-        tweetsContainer.innerHTML = ""; // Clear previous tweets
+                const tweetElement = document.createElement("div");
+                tweetElement.classList.add("tweet");
 
-        tweets.forEach(tweet => {
-            const profileImage = tweet.userId?.profileImage || "https://via.placeholder.com/50";
-            const username = tweet.userId?.username || "Unknown User";
-
-            const tweetElement = document.createElement("div");
-            tweetElement.classList.add("tweet");
-
-            tweetElement.innerHTML = `
-                <div class="tweet-header">
-                    <img src="${profileImage}" alt="Profile Picture">
-                    <div class="user-info">
-                        <strong>${username}</strong>
-                        <small>@${username.toLowerCase().replace(/\s+/g, "_")}</small>
+                tweetElement.innerHTML = `
+                    <div class="tweet-header">
+                        <img src="${profileImage}" alt="Profile Picture">
+                        <div class="user-info">
+                            <strong>${username}</strong>
+                            <small>@${username.toLowerCase().replace(/\s+/g, "_")}</small>
+                        </div>
                     </div>
-                </div>
-                <div class="tweet-content">
-                    <p>${tweet.content}</p>
-                </div>
-                ${tweet.image ? `<img src="${tweet.image}" class="tweet-image" alt="Tweet Image">` : ""}
-                <small>${new Date(tweet.timestamp).toLocaleString()}</small>
-            `;
+                    <div class="tweet-content">
+                        <p>${tweet.content}</p>
+                    </div>
+                    ${tweet.image ? `<img src="${tweet.image}" class="tweet-image" alt="Tweet Image">` : ""}
+                    <small>${new Date(tweet.timestamp).toLocaleString()}</small>
+                `;
 
-            tweetsContainer.prepend(tweetElement);
-        });
-    } catch (error) {
-        console.error("Error loading tweets:", error);
+                tweetsContainer.prepend(tweetElement);
+            });
+        } catch (error) {
+            console.error("Error loading tweets:", error);
+        }
     }
-}
 
-    // ✅ Post a New Tweet
+    // ✅ Post a New Tweet (Fixed Issues)
     tweetForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const content = contentInput.value.trim();
+        const imageFile = imageInput.files[0]; // ✅ Fix: Correct image input reference
 
         if (!content) return alert("Tweet cannot be empty!");
         if (!loggedInUserId) return alert("You must be logged in to post a tweet.");
 
         try {
+            const formData = new FormData();
+            formData.append("userId", loggedInUserId);
+            formData.append("content", content);
+            if (imageFile) {
+                formData.append("image", imageFile);
+            }
+
             const response = await fetch("/tweets", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
                 credentials: "include",
-                body: JSON.stringify({ userId: loggedInUserId, content })
+                body: formData, 
             });
 
             if (response.ok) {
                 contentInput.value = "";
-                loadTweets(); // Reload tweets after posting
+                imageInput.value = null; // ✅ Fix: Properly reset file input
+                loadTweets();
             } else {
                 alert("Failed to post tweet.");
             }
@@ -670,17 +778,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // ✅ Ensure user is logged in before allowing tweets
     await checkLoginStatus();
+    
     if (!loggedInUserId) {
         tweetForm.innerHTML = `<p style="color: red;">You must be logged in to post tweets. <a href="/user/login">Login here</a>.</p>`;
-        return;
+    } else {
+        tweetForm.style.display = "block";
     }
 
-    loadTweets(); // Load tweets initially
+    loadTweets();
 });
-
-
     </script>
 </body>
 </html>
