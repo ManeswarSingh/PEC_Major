@@ -585,7 +585,108 @@ button:hover {
 
 
 
-    
+    .footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+.faq-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.faq-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.faq-container {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    color: #000;
+    max-height: 70px; /* Initial height */
+}
+
+.faq-item:hover {
+    max-height: 150px; /* Expands smoothly */
+}
+
+.faq-content {
+    flex-grow: 1;
+    transition: opacity 0.3s ease-in-out;
+    text-align: left;
+}
+.faq-content h3{
+    margin-top: 10px;
+}
+.faq-item p {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    margin-top: 10px;
+    color: #000;
+}
+
+.faq-item:hover p {
+    opacity: 1;
+}
+
+.icon {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
 
 
 
@@ -655,6 +756,55 @@ button:hover {
             </p>
         </div>
     </section>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-content">
+                    <h3>What do We Offer?</h3>
+                    <p>We offer a complete solution for our urban gardening enthusiasts with the support of AI-powered assistance and a community forum for interactions among themselves</p>
+                </div>
+                <div class="icon">→</div>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-content">
+                    <h3>How Is the Shopping Experience Different on Our Website</h3>
+                    <p>We Recommend plant-related products based on user preferences and needs</p>
+                </div>
+                <div class="icon">→</div>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-content">
+                    <h3>How Will This Community Section Help Me Grow My Plants?</h3>
+                    <p>The community section can be used to share experience, problems, their solutions,QNA, past experiences and many more</p>
+                </div>
+                <div class="icon">→</div>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-content">
+                    <h3>Which AI-Driven Solutions Do We Provide?</h3>
+                    <p>We provide a plant disease detection system to help you find the disease of plant by just uploading the leaf image and also a grow bot that helps you in grouwing healthy plant by providing all the recommendation for it</p>
+                </div>
+                <div class="icon">→</div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Plant Easy Care. All rights reserved.</p>
+            <nav class="footer-links">
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
     
     
     <script>
@@ -670,33 +820,44 @@ button:hover {
 
     // ✅ Check Login Status
     async function checkLoginStatus() {
-        try {
-            const response = await fetch("/api/login-status", { credentials: "include" });
-            const data = await response.json();
+    try {
+        const loginLink = document.getElementById("loginLink").querySelector("a"); // Select the actual `<a>` inside `<li>`
 
-            if (data.isLoggedIn) {
-                loggedInUserId = data.userId;
-                localStorage.setItem("userId", loggedInUserId);
-                loginLink.innerText = "Logout";
-                loginLink.href = "#";
-                loginLink.onclick = async (event) => {
-                    event.preventDefault();
-                    if (confirm("Are you sure you want to log out?")) {
-                        await fetch("/user/logout", { method: "POST", credentials: "include" });
-                        localStorage.removeItem("userId");
-                        window.location.reload();
-                    }
-                };
-            } else {
-                localStorage.removeItem("userId");
-                loginLink.innerText = "Login";
-                loginLink.href = "/user/login";
-                loginLink.onclick = null;
-            }
-        } catch (error) {
-            console.error("Error fetching login status:", error);
+        if (!loginLink) {
+            console.error("Login link not found");
+            return;
         }
+
+        const response = await fetch("/api/login-status", { credentials: "include" });
+        const data = await response.json();
+
+        if (data.isLoggedIn) {
+            loggedInUserId = data.userId;
+            localStorage.setItem("userId", loggedInUserId);
+            loginLink.innerText = "Logout";
+            loginLink.href = "#";
+            loginLink.onclick = async (event) => {
+                event.preventDefault();
+                if (confirm("Are you sure you want to log out?")) {
+                    await fetch("/user/logout", { method: "POST", credentials: "include" });
+                    localStorage.removeItem("userId");
+                    window.location.reload();
+                }
+            };
+        } else {
+            localStorage.removeItem("userId");
+            loginLink.innerText = "Login";
+            loginLink.href = "/user/login";
+            loginLink.onclick = null;
+        }
+    } catch (error) {
+        console.error("Error fetching login status:", error);
     }
+}
+
+// Run function when page loads
+document.addEventListener("DOMContentLoaded", checkLoginStatus);
+
 
     // ✅ Fetch & Display Tweets
     async function loadTweets() {
@@ -710,7 +871,7 @@ button:hover {
                 if (!tweet.timestamp) tweet.timestamp = "1970-01-01T00:00:00Z"; 
             });
 
-            tweets.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            tweets.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
             tweetsContainer.innerHTML = ""; 
 
