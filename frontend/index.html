@@ -1,697 +1,847 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant Easy Care</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&display=swap"
+        rel="stylesheet">
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Gloria+Hallelujah&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-body {
-    background-color: #f3f0f0;
-    color: white;
-}
+        body {
+            background-color: #f3f0f0;
+            color: white;
+        }
 
-/* Navigation Bar */
-header {
-    width: 100%;
-    padding: 20px 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
+        /* Navigation Bar */
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border: 1px solid white;
+            border-radius: 25px;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background: white;
+            color: #000000;
+            /* Adjust text color for contrast */
+        }
+
+        h1 div {
+
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-size: 200px;
+            font-style: normal;
+
+        }
+
+        h1 span {
+
+            font-family: "Gloria Hallelujah", cursive;
+            font-weight: 300;
+            font-style: normal;
+
+
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('bg.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .hero span {
+            font-style: italic;
+            font-size: 6rem;
+            /* color: #007bff; */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        #shop {
+            margin-top: 20px;
+            padding: 12px 24px;
+            /* background: #007bff; */
+            background: none;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.3rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        #shop:hover {
+            background: white;
+            color: #000000;
+            /* Adjust text color for contrast */
+        }
+
+        .community {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 20%;
+            background: #dcead6;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .sidebar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+            font-size: 18px;
+            /* font-weight: bold; */
+            color: #4d4646;
+            font-size: 1.1rem;
+            /* Default size */
+            transition: transform 0.3s ease, font-size 0.3s ease;
+            /* Smooth transition */
+            font-family: "Comfortaa", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+        }
+
+        .sidebar ul li:hover {
+            transform: scale(1.1);
+            /* Slightly increase size */
+            font-size: 1.3rem;
+            /* Increase font size */
+        }
+
+        #plantSide {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-size: 60px;
+            color: #000;
+            font-style: normal;
+        }
+
+        .easy {
+            font-family: "Gloria Hallelujah", cursive;
+            font-weight: 300;
+            color: #000;
+            font-style: normal;
+        }
+
+        .connect-btn {
+            background: #4caf50;
+            color: rgb(63, 58, 58);
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feed {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-info input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .tweet {
+            /* background: #eef5ea; */
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            color: #000;
+        }
+
+        .tweet img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .feed {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            height: 400px;
+            /* Set a fixed height */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling each post */
+        .tweet {
+            /* background: #eef5ea; */
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tweet img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+
+        .feed-container {
+            width: 50%;
+        }
+
+        .post-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .post-box input,
+        .post-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .post-box button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .feed {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            height: 400px;
+            /* Fixed height */
+            overflow-y: auto;
+            /* Scrollable */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tweet {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tweet small {
+            color: gray;
+            font-size: 12px;
+        }
+
+        #tweetSection {
+            width: 50%;
+            margin: auto;
+        }
+
+        #tweetForm {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+        /* Tweet Form Section */
+        #tweetSection {
+            width: 25%;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            /* Fixed height */
+            overflow-y: auto;
+            /* Scrollable */
+        }
+
+        #tweetForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #tweetForm input,
+        #tweetForm textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #tweetForm textarea {
+            resize: none;
+            height: 200px;
+        }
+
+        #tweetForm button {
+            /* background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s; */
+            margin-top: 10px ;
+            padding: 10px;
+            background: none;
+            border: 2px solid rgb(0, 0, 0);
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out
+        }
+
+        #tweetForm button:hover {
+            background: #3d3c3c;
+            color: white;
+        }
+
+        /* Feed Section */
+        #tweetsContainer {
+            width: 50%;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            /* Large fixed height */
+            overflow-y: auto;
+            /* Scrollable */
+        }
+
+
+        .tweet small {
+            color: gray;
+            font-size: 11px;
+        }
+
+
+
+        /* Tweet Card Styles */
+        .tweet {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Tweet Header - Profile Image, Name, and Handle */
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Profile Image */
+        .tweet-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        /* Name and Handle */
+        .tweet-header .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Username */
+        .tweet-header .user-info strong {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* User Handle */
+        .tweet-header .user-info small {
+            color: gray;
+            font-size: 14px;
+        }
+
+        /* Tweet Content */
+        .tweet-content {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Hashtags */
+        .tweet-content p {
+            margin: 10px 0;
+            font-weight: bold;
+            font-family: "Comfortaa", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bolder;
+            font-style: normal;
+        }
+
+        /* Tweet Image */
+        .tweet-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .tweet-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            justify-content: flex-start;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        #image {
+            color: #000;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .video-section h2 {
+            color: #000;
+            font-size: 100px;
+        }
+
+        .video-section video {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+
+
+        .video-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .grow-video {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Grow effect on hover */
+        .video-container:hover .grow-video {
+            transform: scale(1.1);
+        }
+
+        /* "Try Now" button */
+        .try-now-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 123, 255, 0.9);
+            /* Theme color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Show button only on hover */
+        .video-container:hover .try-now-btn {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .video-container {
+            position: relative;
+            display: inline-block;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .grow-video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Enlarge video on hover */
+        .video-container:hover .grow-video {
+            transform: scale(1.1);
+        }
+
+        /* Try Now button */
+        .try-now-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: none;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.3rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .try-now-btn:hover {
+            background: white;
+            color: #000000;
+        }
+
+        .video-container:hover .try-now-btn {
+            opacity: 1;
+        }
+
+        /* Grow Bot description */
+        .grow-bot-description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+
+
+
+        .footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+
+        .faq-section {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+
+        .faq-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .faq-container {
+            width: 60%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            color: #000;
+            max-height: 70px;
+            /* Initial height */
+        }
+
+        .faq-item:hover {
+            max-height: 150px;
+            /* Expands smoothly */
+        }
+
+        .faq-content {
+            flex-grow: 1;
+            transition: opacity 0.3s ease-in-out;
+            text-align: left;
+        }
+
+        .faq-content h3 {
+            margin-top: 10px;
+        }
+
+        .faq-item p {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        .faq-item:hover p {
+            opacity: 1;
+        }
+
+        .icon {
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+
+        /* Tweet actions (Like & Comment buttons) */
+.tweet-actions {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    font-size: 24px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 8px 16px;
-    border: 1px solid white;
-    border-radius: 25px;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-nav ul li a:hover {
-    background: white;
-    color: #000000; /* Adjust text color for contrast */
-}
-h1 div{
-
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-size: 200px;
-  font-style: normal;
-
-}
-h1 span{
-
-  font-family: "Gloria Hallelujah", cursive;
-  font-weight: 300;
-  font-style: normal;
-
-
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: url('bg.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 5rem;
-    font-weight: bold;
-}
-
-.hero span {
-    font-style: italic;
-    font-size: 6rem;
-    /* color: #007bff; */
-}
-
-.hero p {
-    font-size: 1.2rem;
+    gap: 10px;
     margin-top: 10px;
 }
 
-button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    /* background: #007bff; */
-    background: none;
-    border: 2px solid white;
-    color: white;
-    font-size: 1.3rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-button:hover {
-    background: white;
-    color: #000000; /* Adjust text color for contrast */
-}
-
-.community {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-
-.sidebar {
-    width: 20%;
-    background: #dcead6;
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.sidebar-logo {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 10px 0;
-    font-size: 18px;
-    /* font-weight: bold; */
-    color: #4d4646;
-    font-size: 1.1rem; /* Default size */
-    transition: transform 0.3s ease, font-size 0.3s ease; /* Smooth transition */
-    font-family: "Comfortaa", sans-serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>; */
-  font-style: normal;
-}
-
-.sidebar ul li:hover {
-    transform: scale(1.1); /* Slightly increase size */
-    font-size: 1.3rem; /* Increase font size */
-}
-#plantSide{
-    font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-size: 60px;
-  color: #000;
-  font-style: normal;
-}
-.easy{
-    font-family: "Gloria Hallelujah", cursive;
-  font-weight: 300;
-  color: #000;
-  font-style: normal;
-}
-
-.connect-btn {
-    background: #4caf50;
-    color: rgb(63, 58, 58);
-    padding: 10px;
+.tweet-actions button {
+    padding: 6px 14px;
     border: none;
-    width: 100%;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s;
 }
 
-.feed {
-    width: 50%;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
+.tweet-actions button:hover {
+    background-color: #333;
+    color: #fff;
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.user-info input {
-    width: 100%;
+/* Comment Section */
+.comment-section {
+    margin-top: 10px;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.tweet {
-    /* background: #eef5ea; */
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 15px;
-    color: #000;
-}
-
-.tweet img {
-    width: 100%;
+    background-color: #fafafa;
     border-radius: 10px;
 }
 
-.feed {
-    width: 50%;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    height: 400px; /* Set a fixed height */
-    overflow-y: auto; /* Enable vertical scrolling */
+/* Add Comment Input & Button */
+.add-comment {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling each post */
-.tweet {
-    /* background: #eef5ea; */
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.tweet img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-
-.feed-container {
-    width: 50%;
-}
-
-.post-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.post-box input, .post-box textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.post-box button {
-    background: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.feed {
-    margin-top: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    height: 400px; /* Fixed height */
-    overflow-y: auto; /* Scrollable */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.tweet {
-    background: #f4f4f4;
-    padding: 10px;
-    border-radius: 10px;
+    gap: 8px;
     margin-bottom: 10px;
 }
 
-.tweet small {
-    color: gray;
-    font-size: 12px;
-}
-
-#tweetSection {
-    width: 50%;
-    margin: auto;
-}
-
-#tweetForm {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
-/* Tweet Form Section */
-#tweetSection {
-    width: 25%;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    height: 400px; /* Fixed height */
-    overflow-y: auto; /* Scrollable */
-}
-
-#tweetForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#tweetForm input,
-#tweetForm textarea {
-    width: 100%;
-    padding: 10px;
+.comment-input {
+    flex: 1;
+    padding: 6px 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 20px;
+    outline: none;
 }
 
-#tweetForm textarea {
-    resize: none;
-    height: 200px;
-}
-
-#tweetForm button {
-    background: #4caf50;
-    color: white;
+.post-comment-btn {
+    padding: 6px 14px;
     border: none;
-    padding: 10px;
+    border-radius: 20px;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background 0.3s;
+    background-color: #8e8e8e;
+    color: #fff;
+    transition: background-color 0.3s;
 }
 
-#tweetForm button:hover {
-    background: #388e3c;
+.post-comment-btn:hover {
+    background-color: #333;
 }
 
-/* Feed Section */
-#tweetsContainer {
-    width: 50%;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 80vh; /* Large fixed height */
-    overflow-y: auto; /* Scrollable */
-}
-
-
-.tweet small {
-    color: gray;
-    font-size: 11px;
-}
-
-
-
-/* Tweet Card Styles */
-.tweet {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+/* All Comments Styling */
+.all-comments {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
-/* Tweet Header - Profile Image, Name, and Handle */
-.tweet-header {
+/* Single Comment Styling */
+.comment {
     display: flex;
-    align-items: center;
     gap: 10px;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
 }
 
-/* Profile Image */
-.tweet-header img {
-    width: 50px;
-    height: 50px;
+.comment img {
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
 }
 
-/* Name and Handle */
-.tweet-header .user-info {
+.comment-content {
     display: flex;
     flex-direction: column;
 }
 
-/* Username */
-.tweet-header .user-info strong {
-    font-size: 18px;
+.comment-content strong {
+    font-size: 14px;
     color: #333;
 }
 
-/* User Handle */
-.tweet-header .user-info small {
-    color: gray;
-    font-size: 14px;
+.comment-content p {
+    font-size: 13px;
+    margin: 2px 0 0 0;
+    color: #555;
 }
-
-/* Tweet Content */
-.tweet-content {
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-/* Hashtags */
-.tweet-content p {
-    margin: 10px 0;
-    font-weight: bold;
-    font-family: "Comfortaa", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: bolder;
-  font-style: normal;
-}
-
-/* Tweet Image */
-.tweet-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-#image{
-    color: #000;
-}
-.video-section {
-    text-align: center;
-    margin-top: 30px;
-}
-.video-section h2{
-    color: #000;
-    font-size: 100px;
-}
-
-.video-section video {
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-
-
-.video-section {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.video-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.grow-video {
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Grow effect on hover */
-.video-container:hover .grow-video {
-    transform: scale(1.1);
-}
-
-/* "Try Now" button */
-.try-now-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 123, 255, 0.9); /* Theme color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Show button only on hover */
-.video-container:hover .try-now-btn {
-    opacity: 1;
-}
-
-.video-section {
-        text-align: center;
-        margin: 40px 0;
-    }
-
-    .video-container {
-        position: relative;
-        display: inline-block;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .grow-video {
-        width: 100%;
-        max-width: 600px;
-        border-radius: 8px;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    /* Enlarge video on hover */
-    .video-container:hover .grow-video {
-        transform: scale(1.05);
-    }
-
-    /* Try Now button */
-    .try-now-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 4px;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .video-container:hover .try-now-btn {
-        opacity: 1;
-    }
-
-    /* Grow Bot description */
-    .grow-bot-description {
-        margin-top: 20px;
-        font-size: 18px;
-        color: #333;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.5;
-    }
-
-
-
-
-    .footer {
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-links {
-    margin-top: 10px;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-
-.faq-section {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #f9f9f9;
-}
-
-.faq-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-.faq-container {
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.faq-item {
-    background: white;
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    color: #000;
-    max-height: 70px; /* Initial height */
-}
-
-.faq-item:hover {
-    max-height: 150px; /* Expands smoothly */
-}
-
-.faq-content {
-    flex-grow: 1;
-    transition: opacity 0.3s ease-in-out;
-    text-align: left;
-}
-.faq-content h3{
-    margin-top: 10px;
-}
-.faq-item p {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    margin-top: 10px;
-    color: #000;
-}
-
-.faq-item:hover p {
-    opacity: 1;
-}
-
-.icon {
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    border: 2px solid black;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-}
-
-
 
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -706,28 +856,34 @@ button:hover {
             </ul>
         </nav>
     </header>
-    
+
     <section class="hero">
-        <h1> <div>Plant</div> <span>Easy Care</span></h1>
+        <h1>
+            <div>Plant</div> <span>Easy Care</span>
+        </h1>
         <p>100+ Plants - We want our visitors to be inspired to get their hands dirty.</p>
-        <button>Shop Tropical Plants</button>
+        <button id="shop">Shop Tropical Plants</button>
     </section>
     <section class="community">
         <aside class="sidebar">
-            <div class="sidebar-logo"><div id="plantSide">Plant</div> <span class="easy">Easy Care Community</span></div>
+            <div class="sidebar-logo">
+                <div id="plantSide">Plant</div> <span class="easy">Easy Care Community</span>
+            </div>
             <ul>
                 <li>Share your Thoughts</li>
                 <li>Interact with Others</li>
                 <li>Share Your Journey</li>
                 <li>Help others Grow</li>
+                <li>Ask for Advice</li>
+                <li>Appreciate Others</li>
             </ul>
             <!-- <button class="connect-btn">Connect +</button> -->
         </aside>
-        
+
         <section id="tweetsContainer">
             <!-- Tweets will be loaded here -->
         </section>
-        
+
         <section id="tweetSection">
             <form id="tweetForm">
                 <!-- <input type="text" id="username"> -->
@@ -748,10 +904,10 @@ button:hover {
                 <source src="vid.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <button class="try-now-btn">Try Now</button>
+            <a href="/growbot"><button class="try-now-btn">Try Now</button></a>
             <p class="grow-bot-description">
-                Grow Bot is your smart assistant for plant care. It helps you monitor, nurture,  
-                and optimize the health of your plants with AI-powered insights. Try it now and  
+                Grow Bot is your smart assistant for plant care. It helps you monitor, nurture,
+                and optimize the health of your plants with AI-powered insights. Try it now and
                 experience effortless gardening!
             </p>
         </div>
@@ -763,11 +919,12 @@ button:hover {
             <div class="faq-item">
                 <div class="faq-content">
                     <h3>What do We Offer?</h3>
-                    <p>We offer a complete solution for our urban gardening enthusiasts with the support of AI-powered assistance and a community forum for interactions among themselves</p>
+                    <p>We offer a complete solution for our urban gardening enthusiasts with the support of AI-powered
+                        assistance and a community forum for interactions among themselves</p>
                 </div>
                 <div class="icon">→</div>
             </div>
-    
+
             <div class="faq-item">
                 <div class="faq-content">
                     <h3>How Is the Shopping Experience Different on Our Website</h3>
@@ -775,19 +932,22 @@ button:hover {
                 </div>
                 <div class="icon">→</div>
             </div>
-    
+
             <div class="faq-item">
                 <div class="faq-content">
                     <h3>How Will This Community Section Help Me Grow My Plants?</h3>
-                    <p>The community section can be used to share experience, problems, their solutions,QNA, past experiences and many more</p>
+                    <p>The community section can be used to share experience, problems, their solutions,QNA, past
+                        experiences and many more</p>
                 </div>
                 <div class="icon">→</div>
             </div>
-    
+
             <div class="faq-item">
                 <div class="faq-content">
                     <h3>Which AI-Driven Solutions Do We Provide?</h3>
-                    <p>We provide a plant disease detection system to help you find the disease of plant by just uploading the leaf image and also a grow bot that helps you in grouwing healthy plant by providing all the recommendation for it</p>
+                    <p>We provide a plant disease detection system to help you find the disease of plant by just
+                        uploading the leaf image and also a grow bot that helps you in grouwing healthy plant by
+                        providing all the recommendation for it</p>
                 </div>
                 <div class="icon">→</div>
             </div>
@@ -805,150 +965,284 @@ button:hover {
             </nav>
         </div>
     </footer>
-    
-    
+
+
     <script>
-    
-    document.addEventListener("DOMContentLoaded", async () => {
-    const tweetForm = document.getElementById("tweetForm");
-    const contentInput = document.getElementById("content");
-    const imageInput = document.getElementById("image"); // ✅ Fix: Correct image input ID
-    const tweetsContainer = document.getElementById("tweetsContainer");
-    const loginLink = document.getElementById("loginLink");
 
-    let loggedInUserId = null; 
+        document.addEventListener("DOMContentLoaded", async () => {
+            const tweetForm = document.getElementById("tweetForm");
+            const contentInput = document.getElementById("content");
+            const imageInput = document.getElementById("image"); // ✅ Fix: Correct image input ID
+            const tweetsContainer = document.getElementById("tweetsContainer");
+            const loginLink = document.getElementById("loginLink");
 
-    // ✅ Check Login Status
-    async function checkLoginStatus() {
-    try {
-        const loginLink = document.getElementById("loginLink").querySelector("a"); // Select the actual `<a>` inside `<li>`
+            let loggedInUserId = null;
 
-        if (!loginLink) {
-            console.error("Login link not found");
-            return;
-        }
+            // ✅ Check Login Status
+            async function checkLoginStatus() {
+                try {
+                    const loginLink = document.getElementById("loginLink").querySelector("a"); // Select the actual `<a>` inside `<li>`
 
-        const response = await fetch("/api/login-status", { credentials: "include" });
-        const data = await response.json();
+                    if (!loginLink) {
+                        console.error("Login link not found");
+                        return;
+                    }
 
-        if (data.isLoggedIn) {
-            loggedInUserId = data.userId;
-            localStorage.setItem("userId", loggedInUserId);
-            loginLink.innerText = "Logout";
-            loginLink.href = "#";
-            loginLink.onclick = async (event) => {
-                event.preventDefault();
-                if (confirm("Are you sure you want to log out?")) {
-                    await fetch("/user/logout", { method: "POST", credentials: "include" });
-                    localStorage.removeItem("userId");
-                    window.location.reload();
+                    const response = await fetch("/api/login-status", { credentials: "include" });
+                    const data = await response.json();
+
+                    if (data.isLoggedIn) {
+                        loggedInUserId = data.userId;
+                        localStorage.setItem("userId", loggedInUserId);
+                        loginLink.innerText = "Logout";
+                        loginLink.href = "#";
+                        loginLink.onclick = async (event) => {
+                            event.preventDefault();
+                            if (confirm("Are you sure you want to log out?")) {
+                                await fetch("/user/logout", { method: "POST", credentials: "include" });
+                                localStorage.removeItem("userId");
+                                window.location.reload();
+                            }
+                        };
+                    } else {
+                        localStorage.removeItem("userId");
+                        loginLink.innerText = "Login";
+                        loginLink.href = "/user/login";
+                        loginLink.onclick = null;
+                    }
+                } catch (error) {
+                    console.error("Error fetching login status:", error);
                 }
-            };
-        } else {
-            localStorage.removeItem("userId");
-            loginLink.innerText = "Login";
-            loginLink.href = "/user/login";
-            loginLink.onclick = null;
-        }
-    } catch (error) {
-        console.error("Error fetching login status:", error);
-    }
-}
+            }
 
-// Run function when page loads
-document.addEventListener("DOMContentLoaded", checkLoginStatus);
+            // Run function when page loads
+            // document.addEventListener("DOMContentLoaded", checkLoginStatus);
 
 
-    // ✅ Fetch & Display Tweets
-    async function loadTweets() {
-        try {
-            const response = await fetch("/tweets");
-            let tweets = await response.json();
+            // ✅ Fetch & Display Tweets
+            async function loadTweets() {
+                try {
+                    const response = await fetch("/tweets");
+                    let tweets = await response.json();
 
-            tweets = tweets.filter(tweet => tweet.timestamp); 
+                    tweets = tweets.filter(tweet => tweet.timestamp);
 
-            tweets.forEach(tweet => {
-                if (!tweet.timestamp) tweet.timestamp = "1970-01-01T00:00:00Z"; 
-            });
+                    tweets.forEach(tweet => {
+                        if (!tweet.timestamp) tweet.timestamp = "1970-01-01T00:00:00Z";
+                    });
 
-            tweets.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                    tweets.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
-            tweetsContainer.innerHTML = ""; 
+                    tweetsContainer.innerHTML = "";
 
-            tweets.forEach(tweet => {
-                const profileImage = tweet.userId?.profileImage || "https://via.placeholder.com/50";
-                const username = tweet.userId?.username || "Unknown User";
+                    tweets.forEach(tweet => {
+                        const profileImage = tweet.userId?.profileImage || "https://via.placeholder.com/50";
+                        const username = tweet.userId?.username || "Unknown User";
 
-                const tweetElement = document.createElement("div");
-                tweetElement.classList.add("tweet");
+                        const tweetElement = document.createElement("div");
+                        tweetElement.classList.add("tweet");
+                        tweetElement.setAttribute("data-id", tweet._id);
 
-                tweetElement.innerHTML = `
-                    <div class="tweet-header">
-                        <img src="${profileImage}" alt="Profile Picture">
-                        <div class="user-info">
-                            <strong>${username}</strong>
-                            <small>@${username.toLowerCase().replace(/\s+/g, "_")}</small>
+                        tweetElement.innerHTML = `
+                <div class="tweet-header">
+                    <img src="${profileImage}" alt="Profile Picture">
+                    <div class="user-info">
+                        <strong>${username}</strong>
+                        <small>@${username.toLowerCase().replace(/\s+/g, "_")}</small>
+                    </div>
+                </div>
+                <div class="tweet-content">
+                    <p>${tweet.content}</p>
+                </div>
+                ${tweet.image ? `<img src="${tweet.image}" class="tweet-image" alt="Tweet Image">` : ""}
+
+                <div class="tweet-actions">
+                    <button class="like-btn" data-id="${tweet._id}">${tweet.likes?.length || 0} Likes</button>
+                    <button class="comment-btn" data-id="${tweet._id}">Comment</button>
+                </div>
+
+                <div class="comment-section" style="display: none;">
+                    <div class="add-comment">
+                        <input type="text" class="comment-input" placeholder="Add a comment..." />
+                        <button class="post-comment-btn">Post</button>
+                    </div>
+                    <div class="all-comments"></div>
+                </div>
+
+                <small>${new Date(tweet.timestamp).toLocaleString()}</small>
+            `;
+
+                        tweetsContainer.prepend(tweetElement);
+
+                        const commentBtn = tweetElement.querySelector('.comment-btn');
+                        const commentSection = tweetElement.querySelector('.comment-section');
+                        const allCommentsDiv = tweetElement.querySelector('.all-comments');
+                        const postCommentBtn = tweetElement.querySelector('.post-comment-btn');
+                        const commentInput = tweetElement.querySelector('.comment-input');
+
+                        commentBtn.addEventListener('click', async () => {
+                            commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+
+                            if (commentSection.style.display === 'block') {
+                                const res = await fetch(`/tweets/${tweet._id}/comments`);
+                                const comments = await res.json();
+                                console.log(res);
+
+                                allCommentsDiv.innerHTML = comments.map(comment => `
+                        <div class="single-comment">
+                            <strong>${comment.userId?.username || "User"}</strong>: ${comment.content}
                         </div>
-                    </div>
-                    <div class="tweet-content">
-                        <p>${tweet.content}</p>
-                    </div>
-                    ${tweet.image ? `<img src="${tweet.image}" class="tweet-image" alt="Tweet Image">` : ""}
-                    <small>${new Date(tweet.timestamp).toLocaleString()}</small>
-                `;
+                    `).join('');
+                            }
+                        });
 
-                tweetsContainer.prepend(tweetElement);
-            });
-        } catch (error) {
-            console.error("Error loading tweets:", error);
-        }
-    }
+                        postCommentBtn.addEventListener('click', async () => {
+                            const content = commentInput.value.trim();
 
-    // ✅ Post a New Tweet (Fixed Issues)
-    tweetForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const content = contentInput.value.trim();
-        const imageFile = imageInput.files[0]; // ✅ Fix: Correct image input reference
+                            console.log(content)
+                            if (!content) return alert("Comment cannot be empty");
+                            if(!loggedInUserId) return alert ("log in to comment on this post");
 
-        if (!content) return alert("Tweet cannot be empty!");
-        if (!loggedInUserId) return alert("You must be logged in to post a tweet.");
+                            const res = await fetch(`/tweets/${tweet._id}/comments`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ content, userId: loggedInUserId })
+                            });
 
-        try {
-            const formData = new FormData();
-            formData.append("userId", loggedInUserId);
-            formData.append("content", content);
-            if (imageFile) {
-                formData.append("image", imageFile);
+                            if (res.ok) {
+                                commentInput.value = '';
+                                commentBtn.click(); // Reload comments
+                                commentBtn.click(); // Keep it open
+                            }
+                        });
+                    });
+                } catch (error) {
+                    console.error("Error loading tweets:", error);
+                }
+                attachLikeListeners(); // To handle like button clicks
+                // attachPostCommentListeners(); // New function for comment post buttons
             }
 
-            const response = await fetch("/tweets", {
-                method: "POST",
-                credentials: "include",
-                body: formData, 
+
+
+
+
+
+            function attachLikeListeners() {
+                document.querySelectorAll(".like-btn").forEach(btn => {
+                    btn.addEventListener("click", async () => {
+                        const tweetId = btn.getAttribute("data-id");
+                        const userId = loggedInUserId;
+                        await fetch(`/tweets/${tweetId}/like`, { 
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ userId })
+                         });
+                        loadTweets(); // reload tweets to update like count
+                    });
+                });
+            }
+
+
+            function attachCommentToggleListeners() {
+                document.querySelectorAll(".comment-btn").forEach(btn => {
+                    btn.addEventListener("click", async () => {
+                        const tweetId = btn.getAttribute("data-id");
+                        const container = document.getElementById(`comments-${tweetId}`);
+                        container.style.display = container.style.display === "none" ? "block" : "none";
+
+                        if (container.style.display === "block") {
+                            loadComments(tweetId);
+                        }
+                    });
+                });
+            }
+
+
+            async function loadComments(tweetId) {
+                const response = await fetch(`/tweets/${tweetId}/comments`);
+                const comments = await response.json();
+
+                const commentList = document.querySelector(`#comments-${tweetId} .comments-list`);
+                commentList.innerHTML = "";
+
+                comments.forEach(comment => {
+                    commentList.innerHTML += `<p><strong>${comment.userId?.username || "User"}:</strong> ${comment.content}</p>`;
+                });
+            }
+
+
+            function attachCommentPostListeners() {
+                document.querySelectorAll(".post-comment-btn").forEach(btn => {
+                    btn.addEventListener("click", async () => {
+                        const tweetId = btn.getAttribute("data-id");
+                        const input = document.querySelector(`#comments-${tweetId} .comment-input`);
+                        const content = input.value.trim();
+
+                        if (content) {
+                            await fetch(`/tweets/${tweetId}/comments`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({ content }),
+                            });
+                            input.value = "";
+                            loadComments(tweetId); // reload comments
+                        }
+                    });
+                });
+            }
+
+
+            // ✅ Post a New Tweet (Fixed Issues)
+            tweetForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const content = contentInput.value.trim();
+                const imageFile = imageInput.files[0]; // ✅ Fix: Correct image input reference
+
+                if (!content) return alert("Tweet cannot be empty!");
+                if (!loggedInUserId) return alert("You must be logged in to post a tweet.");
+
+                try {
+                    const formData = new FormData();
+                    formData.append("userId", loggedInUserId);
+                    formData.append("content", content);
+                    if (imageFile) {
+                        formData.append("image", imageFile);
+                    }
+
+                    const response = await fetch("/tweets", {
+                        method: "POST",
+                        credentials: "include",
+                        body: formData,
+                    });
+
+                    if (response.ok) {
+                        contentInput.value = "";
+                        imageInput.value = null; // ✅ Fix: Properly reset file input
+                        loadTweets();
+                    } else {
+                        alert("Failed to post tweet.");
+                    }
+                } catch (error) {
+                    console.error("Error posting tweet:", error);
+                }
             });
 
-            if (response.ok) {
-                contentInput.value = "";
-                imageInput.value = null; // ✅ Fix: Properly reset file input
-                loadTweets();
+            await checkLoginStatus();
+
+            if (!loggedInUserId) {
+                tweetForm.innerHTML = `<p style="color: red;">You must be logged in to post tweets. <a href="/user/login">Login here</a>.</p>`;
             } else {
-                alert("Failed to post tweet.");
+                tweetForm.style.display = "block";
             }
-        } catch (error) {
-            console.error("Error posting tweet:", error);
-        }
-    });
 
-    await checkLoginStatus();
-    
-    if (!loggedInUserId) {
-        tweetForm.innerHTML = `<p style="color: red;">You must be logged in to post tweets. <a href="/user/login">Login here</a>.</p>`;
-    } else {
-        tweetForm.style.display = "block";
-    }
-
-    loadTweets();
-});
+            await loadTweets();
+        });
     </script>
 </body>
+
 </html>

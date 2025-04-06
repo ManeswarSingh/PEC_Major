@@ -6,6 +6,15 @@ const tweetSchema = new Schema({
         required:true
     } ,
     image: { type: String },
+    likes: [{ 
+        type: Schema.Types.ObjectId, 
+        ref: 'User' 
+      }],
+      comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
+      }],
+    
     timestamp: { type: Date, default: Date.now }
 });
 
