@@ -123,19 +123,21 @@
             padding: 12px 24px;
             /* background: #007bff; */
             background: none;
-            border: 2px solid white;
+            font-style: italic;
+
+            /* border: 2px solid white; */
             color: white;
             font-size: 1.3rem;
             border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+            /* transition: background 0.3s ease-in-out, color 0.3s ease-in-out; */
         }
 
-        #shop:hover {
-            background: white;
-            color: #000000;
+        /* #shop:hover { */
+            /* background: white; */
+            /* color: #000000; */
             /* Adjust text color for contrast */
-        }
+        /* } */
 
         .community {
             display: flex;
@@ -862,7 +864,7 @@
             <div>Plant</div> <span>Easy Care</span>
         </h1>
         <p>100+ Plants - We want our visitors to be inspired to get their hands dirty.</p>
-        <button id="shop">Shop Tropical Plants</button>
+        <h2 id="shop">hi, name</h2>
     </section>
     <section class="community">
         <aside class="sidebar">
@@ -990,10 +992,12 @@
 
                     const response = await fetch("/api/login-status", { credentials: "include" });
                     const data = await response.json();
+                    const username = data.email || "Unknown User";
 
                     if (data.isLoggedIn) {
                         loggedInUserId = data.userId;
                         localStorage.setItem("userId", loggedInUserId);
+                        document.getElementById('shop').innerText = `Hi, ${username}`;
                         loginLink.innerText = "Logout";
                         loginLink.href = "#";
                         loginLink.onclick = async (event) => {
@@ -1006,6 +1010,7 @@
                         };
                     } else {
                         localStorage.removeItem("userId");
+                        document.getElementById('shop').innerText = `Hi, Guest`;
                         loginLink.innerText = "Login";
                         loginLink.href = "/user/login";
                         loginLink.onclick = null;

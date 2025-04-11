@@ -13,7 +13,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      /* background: linear-gradient(135deg, #c2e9fb, #a1c4fd); */
+      background: #f3f0f0;
       color: #333;
       display: flex;
       flex-direction: column;
@@ -21,9 +22,10 @@
     }
 
     header {
-      background-color: #4CAF50;
-      color: white;
+      /* background-color: #4CAF50; */
+      color: rgb(0, 0, 0);
       padding: 20px;
+      font-weight: bold;
       text-align: center;
       font-size: 2.5rem;
       letter-spacing: 1px;
@@ -32,10 +34,9 @@
     main {
       flex: 1;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 40px;
-      padding: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
     }
 
     .input-group {
@@ -45,70 +46,102 @@
     }
 
     label {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
     }
 
     input {
-      padding: 15px;
-      font-size: 1.1rem;
+      padding: 12px;
+      font-size: 1rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       outline: none;
-      background: #f0f0f0;
+      background: #ffffff;
     }
 
     button {
-      margin: 40px auto;
-      padding: 15px 60px;
-      font-size: 1.3rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      display: block;
-    }
+            margin: auto;
+            margin-top: 10px;
 
-    button:hover {
-      background-color: #45a049;
-    }
+            padding: 12px 24px;
+            background: none;
+            border: 2px solid #000000;
+            color: #000000;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+            display: block;
+        }
 
+        button:hover {
+            background-color: #000000;
+            color: white;
+        }
     @media (max-width: 768px) {
       main {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-        padding: 30px;
-        gap: 30px;
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>GrowBot</header>
+<header>GrowBot</header>
 
-  <main>
-    <div class="input-group">
-      <label for="light">Light Intensity</label>
-      <input type="number" id="light" placeholder="Enter light intensity" required>
-    </div>
-    <div class="input-group">
-      <label for="temp">Temperature (°C)</label>
-      <input type="number" id="temp" placeholder="Enter temperature" required>
-    </div>
-    <div class="input-group">
-      <label for="ph">Soil pH</label>
-      <input type="number" step="0.1" id="ph" placeholder="Enter soil pH" required>
-    </div>
-    <div class="input-group">
-      <label for="humidity">Humidity (%)</label>
-      <input type="number" id="humidity" placeholder="Enter humidity" required>
-    </div>
-  </main>
+<main>
+  <div class="input-group">
+    <label for="soilMoisture">Soil Moisture</label>
+    <input type="number" id="soilMoisture" placeholder="Enter soil moisture">
+  </div>
 
-  <button type="submit">Submit</button>
+  <div class="input-group">
+    <label for="ambientTemp">Ambient Temperature (°C)</label>
+    <input type="number" id="ambientTemp" placeholder="Enter ambient temperature">
+  </div>
+
+  <div class="input-group">
+    <label for="soilTemp">Soil Temperature (°C)</label>
+    <input type="number" id="soilTemp" placeholder="Enter soil temperature">
+  </div>
+
+  <div class="input-group">
+    <label for="humidity">Humidity (%)</label>
+    <input type="number" id="humidity" placeholder="Enter humidity">
+  </div>
+
+  <div class="input-group">
+    <label for="lightIntensity">Light Intensity</label>
+    <input type="number" id="lightIntensity" placeholder="Enter light intensity">
+  </div>
+
+  <div class="input-group">
+    <label for="soilPh">Soil pH</label>
+    <input type="number" step="0.1" id="soilPh" placeholder="Enter soil pH">
+  </div>
+
+  <div class="input-group">
+    <label for="nitrogen">Nitrogen Level</label>
+    <input type="number" id="nitrogen" placeholder="Enter nitrogen level">
+  </div>
+
+  <div class="input-group">
+    <label for="phosphorus">Phosphorus Level</label>
+    <input type="number" id="phosphorus" placeholder="Enter phosphorus level">
+  </div>
+
+  <div class="input-group">
+    <label for="potassium">Potassium Level</label>
+    <input type="number" id="potassium" placeholder="Enter potassium level">
+  </div>
+
+  <div class="input-group">
+    <label for="electroSignal">Electrochemical Signal</label>
+    <input type="number" id="electroSignal" placeholder="Enter electrochemical signal">
+  </div>
+</main>
+
+<button type="submit">Submit</button>
 
 </body>
 </html>
